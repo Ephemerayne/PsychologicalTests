@@ -7,6 +7,11 @@
 
     <fragment
         android:id="@+id/main_fragment"
-        android:name="com.ephemerayne.presentation.ui.MainFragment"
+        android:name="com.ephemerayne.presentation.ui.main.MainFragment"
         tools:layout="@layout/fragment_main" />
+
+    <fragment
+        android:id="@+id/test_list_fragment"
+        android:name="com.ephemerayne.presentation.ui.testlist.TestListFragment"
+        tools:layout="@layout/fragment_test_list" />
 </navigation>
