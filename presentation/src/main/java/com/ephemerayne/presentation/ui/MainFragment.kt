@@ -30,6 +30,8 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
         .root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        println("debugg: $viewModel")
+        viewModel.getCategories().observe(viewLifecycleOwner, {
+            println("debug: $it")
+        })
     }
 }
