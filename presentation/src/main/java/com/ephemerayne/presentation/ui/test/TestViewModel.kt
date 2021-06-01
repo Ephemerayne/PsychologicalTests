@@ -22,11 +22,21 @@ class TestViewModel @Inject constructor(
     fun getOptions(questionId: Int): LiveData<List<OptionEntity>> =
         optionsRepository.getOptions(questionId)
 
-    fun getNextQuestion(): QuestionEntity? {
-        if (questionIndex <= questions.size - 2) {
+    fun getNextQuestion(): QuestionEntity {
+        return if (questionIndex <= questions.size - 2) {
             questionIndex++
-            return questions[questionIndex]
+            questions[questionIndex]
+        } else {
+            questions.last()
         }
-        return null
+    }
+
+    fun getPreviousQuestion(): QuestionEntity {
+        return if (questionIndex > 0) {
+            questionIndex--
+            questions[questionIndex]
+        } else {
+            questions.first()
+        }
     }
 }

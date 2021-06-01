@@ -50,6 +50,10 @@ class TestFragment : BaseFragment(R.layout.fragment_test) {
                 showOptions(viewModel.getNextQuestion())
             }
         }
+
+        binding.backButton.setOnClickListener {
+            showOptions(viewModel.getPreviousQuestion())
+        }
     }
 
     private fun showOptions(question: QuestionEntity?) {
