@@ -13,11 +13,20 @@ class TestViewModel @Inject constructor(
     private val optionsRepository: OptionsRepository,
 ) : ViewModel() {
 
-    var questions: List<QuestionEntity>? = listOf()
+    var questions: List<QuestionEntity> = listOf()
+    private var questionIndex = 0
 
     fun getQuestions(testId: Int): LiveData<List<QuestionEntity>> =
         questionsRepository.getQuestions(testId)
 
     fun getOptions(questionId: Int): LiveData<List<OptionEntity>> =
         optionsRepository.getOptions(questionId)
+
+    fun getNextQuestion(): QuestionEntity? {
+        if (questionIndex <= questions.size - 2) {
+            questionIndex++
+            return questions[questionIndex]
+        }
+        return null
+    }
 }

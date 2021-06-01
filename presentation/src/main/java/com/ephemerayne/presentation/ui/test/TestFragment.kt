@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import com.ephemerayne.domain.entity.QuestionEntity
 import com.ephemerayne.presentation.R
 import com.ephemerayne.presentation.databinding.FragmentTestBinding
 import com.ephemerayne.presentation.di.PresentationComponent
@@ -39,19 +40,22 @@ class TestFragment : BaseFragment(R.layout.fragment_test) {
         testId?.let { id ->
             viewModel.getQuestions(id).observe(viewLifecycleOwner, {
                 viewModel.questions = it
-                createRadioButtons()
+                showOptions(it.firstOrNull())
             })
+        }
+
+        binding.nextButton.setOnClickListener {
+            showOptions(viewModel.getNextQuestion())
         }
     }
 
-    fun createRadioButtons() {
-        val question = viewModel.questions?.get(0) ?: return
-
-        viewModel.getOptions(question.id).observe(viewLifecycleOwner, {
+    private fun showOptions(question: QuestionEntity?) {
+        if (question == null) return
+        viewModel.getOptions(question.id).observe(viewLifecycleOwner, { options ->
             val optionsGroup = binding.optionsGroup
             optionsGroup.removeAllViews()
             optionsGroup.clearCheck()
-            for (option in it) {
+            for (option in options) {
                 val optionButton = RadioButton(context)
                 optionButton.text = option.option
                 optionsGroup.addView(optionButton)
