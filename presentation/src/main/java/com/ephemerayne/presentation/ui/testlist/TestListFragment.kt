@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ephemerayne.presentation.R
-import com.ephemerayne.presentation.api.OpenTest
+import com.ephemerayne.presentation.api.OpenTestDescription
 import com.ephemerayne.presentation.databinding.FragmentTestListBinding
 import com.ephemerayne.presentation.di.PresentationComponent
 import com.ephemerayne.presentation.di.PresentationComponentDependencies
@@ -20,7 +20,7 @@ class TestListFragment : BaseFragment(R.layout.fragment_test_list), OnTestListen
     lateinit var viewModel: TestListViewModel
 
     @Inject
-    lateinit var openTest: OpenTest
+    lateinit var openTestDescription: OpenTestDescription
 
     private lateinit var binding: FragmentTestListBinding
     private val adapter: TestListAdapter = TestListAdapter(this)
@@ -49,6 +49,6 @@ class TestListFragment : BaseFragment(R.layout.fragment_test_list), OnTestListen
     }
 
     override fun onTestClick(id: Int) {
-        openTest(id)
+        openTestDescription(id)
     }
 }

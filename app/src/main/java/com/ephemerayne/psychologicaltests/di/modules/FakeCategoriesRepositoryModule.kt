@@ -1,7 +1,7 @@
 package com.ephemerayne.psychologicaltests.di.modules
 
 import com.ephemerayne.data.repository.FakeCategoriesRepository
-import com.ephemerayne.domain.repository.CategoryRepository
+import com.ephemerayne.domain.repository.CategoriesRepository
 import dagger.Module
 import dagger.Provides
 
@@ -9,5 +9,5 @@ import dagger.Provides
 class FakeCategoriesRepositoryModule {
 
     @Provides
-    fun provideCategoriesRepository(): CategoryRepository = FakeCategoriesRepository()
+    fun provideCategoriesRepository(): CategoriesRepository = FakeCategoriesRepository()
 }

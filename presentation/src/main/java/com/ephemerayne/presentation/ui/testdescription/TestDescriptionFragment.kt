@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ephemerayne.presentation.R
+import com.ephemerayne.presentation.api.OpenTest
 import com.ephemerayne.presentation.databinding.FragmentTestDescriptionBinding
 import com.ephemerayne.presentation.di.PresentationComponent
 import com.ephemerayne.presentation.di.PresentationComponentDependencies
@@ -20,6 +21,9 @@ class TestDescriptionFragment : BaseFragment(R.layout.fragment_test_description)
 
     @Inject
     lateinit var viewModel: TestDescriptionViewModel
+
+    @Inject
+    lateinit var openTest: OpenTest
 
     private lateinit var binding: FragmentTestDescriptionBinding
 
@@ -41,6 +45,12 @@ class TestDescriptionFragment : BaseFragment(R.layout.fragment_test_description)
                     testDescription.text = it.description
                 }
             })
+        }
+
+        binding.beginTestButton.setOnClickListener {
+            if (testId != null) {
+                openTest(testId)
+            }
         }
     }
 }

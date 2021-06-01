@@ -3,9 +3,9 @@ package com.ephemerayne.data.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.ephemerayne.domain.entity.TestEntity
-import com.ephemerayne.domain.repository.TestRepository
+import com.ephemerayne.domain.repository.TestsRepository
 
-class FakeTestsRepository: TestRepository {
+class FakeTestsRepository: TestsRepository {
 
     private val fakeTests = listOf(
         TestEntity(1, 1, "Fake Test 1", "description 1"),

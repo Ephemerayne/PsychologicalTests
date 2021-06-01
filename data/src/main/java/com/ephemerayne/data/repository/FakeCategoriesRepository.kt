@@ -3,9 +3,9 @@ package com.ephemerayne.data.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.ephemerayne.domain.entity.CategoryEntity
-import com.ephemerayne.domain.repository.CategoryRepository
+import com.ephemerayne.domain.repository.CategoriesRepository
 
-class FakeCategoriesRepository: CategoryRepository {
+class FakeCategoriesRepository: CategoriesRepository {
 
     override fun getCategories(): LiveData<List<CategoryEntity>> {
        return MutableLiveData<List<CategoryEntity>>().apply {

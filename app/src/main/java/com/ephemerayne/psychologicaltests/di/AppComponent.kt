@@ -3,9 +3,7 @@ package com.ephemerayne.psychologicaltests.di
 import android.content.Context
 import com.ephemerayne.presentation.di.PresentationComponentDependencies
 import com.ephemerayne.psychologicaltests.MainActivity
-import com.ephemerayne.psychologicaltests.di.modules.FakeCategoriesRepositoryModule
-import com.ephemerayne.psychologicaltests.di.modules.FakeTestsRepositoryModule
-import com.ephemerayne.psychologicaltests.di.modules.NavigationActionModule
+import com.ephemerayne.psychologicaltests.di.modules.*
 import dagger.BindsInstance
 import dagger.Component
 
@@ -15,6 +13,8 @@ import dagger.Component
         FakeCategoriesRepositoryModule::class,
         NavigationActionModule::class,
         FakeTestsRepositoryModule::class,
+        FakeQuestionsRepositoryModule::class,
+        FakeOptionsRepositoryModule::class
     ]
 )
 interface AppComponent : PresentationComponentDependencies {
