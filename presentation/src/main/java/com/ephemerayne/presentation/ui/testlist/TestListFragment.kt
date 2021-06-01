@@ -40,7 +40,8 @@ class TestListFragment : BaseFragment(R.layout.fragment_test_list), OnTestListen
             adapter = this@TestListFragment.adapter
         }
         viewModel.getTests().observe(viewLifecycleOwner, {
-            adapter.setTests(it)
+            val categoryId = arguments?.getInt(CATEGORY_KEY, 0)
+            adapter.setTests(it.filter { testEntity -> testEntity.categoryId == categoryId })
         })
     }
 
