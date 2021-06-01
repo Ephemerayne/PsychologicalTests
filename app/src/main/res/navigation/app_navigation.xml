@@ -14,4 +14,10 @@
         android:id="@+id/test_list_fragment"
         android:name="com.ephemerayne.presentation.ui.testlist.TestListFragment"
         tools:layout="@layout/fragment_test_list" />
+
+    <fragment
+        android:id="@+id/test_description_fragment"
+        android:name="com.ephemerayne.presentation.ui.testdescription.TestDescriptionFragment"
+        tools:layout="@layout/fragment_test_description" />
+
 </navigation>

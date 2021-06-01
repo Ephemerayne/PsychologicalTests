@@ -5,7 +5,7 @@ import com.ephemerayne.presentation.di.PresentationComponentDependencies
 import com.ephemerayne.psychologicaltests.MainActivity
 import com.ephemerayne.psychologicaltests.di.modules.FakeCategoriesRepositoryModule
 import com.ephemerayne.psychologicaltests.di.modules.FakeTestsRepositoryModule
-import com.ephemerayne.psychologicaltests.di.modules.OpenCategoryModule
+import com.ephemerayne.psychologicaltests.di.modules.NavigationActionModule
 import dagger.BindsInstance
 import dagger.Component
 
@@ -13,7 +13,7 @@ import dagger.Component
     modules = [
         AppComponentDependenciesModule::class,
         FakeCategoriesRepositoryModule::class,
-        OpenCategoryModule::class,
+        NavigationActionModule::class,
         FakeTestsRepositoryModule::class,
     ]
 )
