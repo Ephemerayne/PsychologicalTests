@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import androidx.core.view.children
 import com.ephemerayne.domain.entity.QuestionEntity
 import com.ephemerayne.presentation.R
 import com.ephemerayne.presentation.databinding.FragmentTestBinding
@@ -45,7 +46,9 @@ class TestFragment : BaseFragment(R.layout.fragment_test) {
         }
 
         binding.nextButton.setOnClickListener {
-            showOptions(viewModel.getNextQuestion())
+            if (isOptionSelected()) {
+                showOptions(viewModel.getNextQuestion())
+            }
         }
     }
 
@@ -61,5 +64,11 @@ class TestFragment : BaseFragment(R.layout.fragment_test) {
                 optionsGroup.addView(optionButton)
             }
         })
+    }
+
+    private fun isOptionSelected(): Boolean {
+        return binding.optionsGroup.children.any { view ->
+            (view as? RadioButton)?.isChecked ?: false
+        }
     }
 }
