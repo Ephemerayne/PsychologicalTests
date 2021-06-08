@@ -19,6 +19,11 @@ class FakeOptionsRepository: OptionsRepository {
                 OptionEntity(2, 6, 1, "Option 6"),
                 OptionEntity(2, 7, 2, "Option 7"),
                 OptionEntity(2, 8, 3, "Option 8"),
+
+                OptionEntity(3, 9, 0, "Option 9"),
+                OptionEntity(3, 10, 1, "Option 10"),
+                OptionEntity(3, 11, 2, "Option 11"),
+                OptionEntity(3, 12, 3, "Option 12"),
             ).filter { optionEntity -> optionEntity.questionId == questionId }
         }
     }
