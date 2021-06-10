@@ -1,6 +1,7 @@
 package com.ephemerayne.presentation.ui.test
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ephemerayne.domain.entity.OptionEntity
 import com.ephemerayne.domain.entity.QuestionEntity
@@ -14,7 +15,16 @@ class TestViewModel @Inject constructor(
 ) : ViewModel() {
 
     var questions: List<QuestionEntity> = listOf()
-    private var questionIndex = 0
+    var questionIndex = 0
+    var questionsToAnswers = HashMap<QuestionEntity, OptionEntity>()
+    private val isLastQuestionMLD: MutableLiveData<Boolean> = MutableLiveData<Boolean>().apply {
+        value = false
+    }
+    private val currentQuestionMLD: MutableLiveData<QuestionEntity> =
+        MutableLiveData<QuestionEntity>()
+    val currentQuestionLiveData: LiveData<QuestionEntity> = currentQuestionMLD
+
+    val isLastQuestionLiveData: LiveData<Boolean> = isLastQuestionMLD
 
     fun getQuestions(testId: Int): LiveData<List<QuestionEntity>> =
         questionsRepository.getQuestions(testId)
@@ -38,5 +48,17 @@ class TestViewModel @Inject constructor(
         } else {
             questions.first()
         }
+    }
+
+    fun setAnswer(optionEntity: OptionEntity) {
+        questionsToAnswers[questions[questionIndex]] = optionEntity
+    }
+
+    fun checkIsLastQuestion() {
+        isLastQuestionMLD.value = questionIndex == questions.lastIndex
+    }
+
+    fun setNextQuestion() {
+        currentQuestionMLD.value = questions[questionIndex]
     }
 }

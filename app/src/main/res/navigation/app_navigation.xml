@@ -25,4 +25,10 @@
         android:name="com.ephemerayne.presentation.ui.test.TestFragment"
         tools:layout="@layout/fragment_test" />
 
+    <fragment
+        android:id="@+id/result_fragment"
+        android:name="com.ephemerayne.presentation.ui.resultscreen.ResultFragment"
+        tools:layout="@layout/fragment_result" />
+
+
 </navigation>

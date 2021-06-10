@@ -9,6 +9,7 @@ import com.ephemerayne.presentation.api.OpenTest
 import com.ephemerayne.presentation.api.OpenTestDescription
 import com.ephemerayne.presentation.di.modules.ViewModelsModule
 import com.ephemerayne.presentation.ui.main.MainFragment
+import com.ephemerayne.presentation.ui.resultscreen.ResultFragment
 import com.ephemerayne.presentation.ui.test.TestFragment
 import com.ephemerayne.presentation.ui.testdescription.TestDescriptionFragment
 import com.ephemerayne.presentation.ui.testlist.TestListFragment
@@ -22,6 +23,7 @@ interface PresentationComponentDependencies : ComponentDependencies {
     fun openCategory(): OpenCategory
     fun openTestDescription(): OpenTestDescription
     fun openTest(): OpenTest
+//    fun openResult(): OpenResult
 }
 
 @Component(
@@ -38,4 +40,5 @@ interface PresentationComponent {
     fun inject(testListFragment: TestListFragment)
     fun inject(testDescriptionFragment: TestDescriptionFragment)
     fun inject(testFragment: TestFragment)
+    fun inject(resultFragment: ResultFragment)
 }

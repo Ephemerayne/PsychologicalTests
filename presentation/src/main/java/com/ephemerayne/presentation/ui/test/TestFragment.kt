@@ -42,6 +42,7 @@ class TestFragment : BaseFragment(R.layout.fragment_test) {
             viewModel.getQuestions(id).observe(viewLifecycleOwner, {
                 viewModel.questions = it
                 showOptions(it.firstOrNull())
+                viewModel.setNextQuestion()
             })
         }
 
@@ -49,11 +50,28 @@ class TestFragment : BaseFragment(R.layout.fragment_test) {
             if (isOptionSelected()) {
                 showOptions(viewModel.getNextQuestion())
             }
+            viewModel.setNextQuestion()
+            viewModel.checkIsLastQuestion()
         }
 
         binding.backButton.setOnClickListener {
             showOptions(viewModel.getPreviousQuestion())
+            viewModel.checkIsLastQuestion()
+            viewModel.setNextQuestion()
         }
+
+        viewModel.isLastQuestionLiveData.observe(viewLifecycleOwner, { isLastQuestion ->
+            binding.nextButton.text = if (isLastQuestion) {
+                sumPoints()
+                getString(R.string.end_test)
+            } else {
+                getString(R.string.next)
+            }
+        })
+
+        viewModel.currentQuestionLiveData.observe(viewLifecycleOwner, { currentQuestion ->
+            binding.question.text = currentQuestion.title
+        })
     }
 
     private fun showOptions(question: QuestionEntity?) {
@@ -65,6 +83,10 @@ class TestFragment : BaseFragment(R.layout.fragment_test) {
             for (option in options) {
                 val optionButton = RadioButton(context)
                 optionButton.text = option.option
+                optionButton.setOnClickListener {
+                    viewModel.setAnswer(option)
+                    println("debug points: ${option.points}")
+                }
                 optionsGroup.addView(optionButton)
             }
         })
@@ -74,5 +96,14 @@ class TestFragment : BaseFragment(R.layout.fragment_test) {
         return binding.optionsGroup.children.any { view ->
             (view as? RadioButton)?.isChecked ?: false
         }
+    }
+
+    private fun sumPoints(): Int {
+        var sumPoints = 0
+        for (point in viewModel.questionsToAnswers) {
+            sumPoints += point.value.points
+        }
+        println("debug hashmap: ${viewModel.questionsToAnswers}")
+        return sumPoints
     }
 }
