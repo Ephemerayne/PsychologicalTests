@@ -5,6 +5,7 @@ import com.ephemerayne.domain.repository.OptionsRepository
 import com.ephemerayne.domain.repository.QuestionsRepository
 import com.ephemerayne.domain.repository.TestsRepository
 import com.ephemerayne.presentation.api.OpenCategory
+import com.ephemerayne.presentation.api.OpenResult
 import com.ephemerayne.presentation.api.OpenTest
 import com.ephemerayne.presentation.api.OpenTestDescription
 import com.ephemerayne.presentation.di.modules.ViewModelsModule
@@ -23,7 +24,7 @@ interface PresentationComponentDependencies : ComponentDependencies {
     fun openCategory(): OpenCategory
     fun openTestDescription(): OpenTestDescription
     fun openTest(): OpenTest
-//    fun openResult(): OpenResult
+    fun openResult(): OpenResult
 }
 
 @Component(

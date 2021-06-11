@@ -56,10 +56,6 @@
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:background="?android:attr/listDivider" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -74,9 +70,6 @@
                 android:text="@string/result_date"
                 android:textStyle="bold" />
 
-            <View
-                android:background="?android:attr/listDivider" />
-
             <TextView
                 android:id="@+id/text_points_result"
                 android:layout_width="match_parent"
@@ -85,9 +78,6 @@
                 android:gravity="center"
                 android:text="@string/result_points_statistics"
                 android:textStyle="bold" />
-
-            <View
-                android:background="?android:attr/listDivider" />
 
             <TextView
                 android:id="@+id/text_result"

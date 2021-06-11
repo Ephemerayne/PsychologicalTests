@@ -14,6 +14,10 @@ import javax.inject.Inject
 
 class ResultFragment : BaseFragment(R.layout.fragment_result) {
 
+    companion object {
+        const val RESULT_KEY = "RESULT KEY"
+    }
+
     @Inject
     lateinit var viewModel: ResultViewModel
 
@@ -30,7 +34,9 @@ class ResultFragment : BaseFragment(R.layout.fragment_result) {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        val sumPoints = arguments?.getInt(RESULT_KEY)
+        val resPlural: String? = sumPoints?.let { resources.getQuantityString(R.plurals.points, it) }
+        binding.resultPoints.text = getString(R.string.result_points, sumPoints, resPlural)
     }
 }
 

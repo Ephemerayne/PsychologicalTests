@@ -8,6 +8,7 @@ import android.widget.RadioButton
 import androidx.core.view.children
 import com.ephemerayne.domain.entity.QuestionEntity
 import com.ephemerayne.presentation.R
+import com.ephemerayne.presentation.api.OpenResult
 import com.ephemerayne.presentation.databinding.FragmentTestBinding
 import com.ephemerayne.presentation.di.PresentationComponent
 import com.ephemerayne.presentation.di.PresentationComponentDependencies
@@ -23,6 +24,9 @@ class TestFragment : BaseFragment(R.layout.fragment_test) {
 
     @Inject
     lateinit var viewModel: TestViewModel
+
+    @Inject
+    lateinit var openResult: OpenResult
 
     private lateinit var binding: FragmentTestBinding
 
@@ -62,7 +66,7 @@ class TestFragment : BaseFragment(R.layout.fragment_test) {
 
         viewModel.isLastQuestionLiveData.observe(viewLifecycleOwner, { isLastQuestion ->
             binding.nextButton.text = if (isLastQuestion) {
-                sumPoints()
+                binding.nextButton.setOnClickListener { openResult(sumPoints()) }
                 getString(R.string.end_test)
             } else {
                 getString(R.string.next)
@@ -85,7 +89,6 @@ class TestFragment : BaseFragment(R.layout.fragment_test) {
                 optionButton.text = option.option
                 optionButton.setOnClickListener {
                     viewModel.setAnswer(option)
-                    println("debug points: ${option.points}")
                 }
                 optionsGroup.addView(optionButton)
             }
@@ -103,7 +106,6 @@ class TestFragment : BaseFragment(R.layout.fragment_test) {
         for (point in viewModel.questionsToAnswers) {
             sumPoints += point.value.points
         }
-        println("debug hashmap: ${viewModel.questionsToAnswers}")
         return sumPoints
     }
 }
