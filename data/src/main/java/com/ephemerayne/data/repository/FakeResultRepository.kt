@@ -19,8 +19,6 @@ class FakeResultRepository : ResultRepository {
                 ResultEntity(1, 1, LocalDateTime.now(), 14),
                 ResultEntity(2, 1, LocalDateTime.now(), 17),
                 ResultEntity(30, 1, LocalDateTime.now(), 25),
-                ResultEntity(9, 1, LocalDateTime.now(), 40),
-                ResultEntity(5, 1, LocalDateTime.now(), 2),
                 ResultEntity(6, 1, LocalDateTime.now(), 50),
             )
 

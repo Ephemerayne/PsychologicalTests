@@ -15,4 +15,10 @@
     <string name="result_points_statistics">Количество баллов</string>
     <string name="result_statistics">Результат</string>
     <string name="date_time_formatter">%1$s\n%2$s</string>
+
+    <string name="result0_9">Отсутствие депрессивных симптомов</string>
+    <string name="result10_15">Субдепрессия (Легкая депрессия)</string>
+    <string name="result16_19">Умеренная депрессия</string>
+    <string name="result20_29">Выраженная депрессия средней тяжести</string>
+    <string name="result30_63">Тяжелая депрессия</string>
 </resources>

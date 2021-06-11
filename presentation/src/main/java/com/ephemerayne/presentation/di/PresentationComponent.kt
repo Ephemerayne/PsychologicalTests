@@ -19,6 +19,7 @@ interface PresentationComponentDependencies : ComponentDependencies {
     fun getOptionsRepository(): OptionsRepository
     fun getTestsRepository(): TestsRepository
     fun getResultRepository(): ResultRepository
+    fun getInterpretationRepository(): InterpretationRepository
     fun openCategory(): OpenCategory
     fun openTestDescription(): OpenTestDescription
     fun openTest(): OpenTest

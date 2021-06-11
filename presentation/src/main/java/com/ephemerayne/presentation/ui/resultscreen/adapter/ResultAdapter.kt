@@ -3,12 +3,14 @@ package com.ephemerayne.presentation.ui.resultscreen.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.ephemerayne.domain.entity.PointsInterpretation
 import com.ephemerayne.domain.entity.ResultEntity
 import com.ephemerayne.presentation.databinding.ResultItemRecyclerViewBinding
 
-class ResultAdapter() : RecyclerView.Adapter<ResultViewHolder>() {
+class ResultAdapter : RecyclerView.Adapter<ResultViewHolder>() {
 
     private val results: ArrayList<ResultEntity> = ArrayList()
+    private val pointsInterpretation: ArrayList<PointsInterpretation> = ArrayList()
 
     fun setResults(results: List<ResultEntity>) {
         with(this.results) {
@@ -18,6 +20,14 @@ class ResultAdapter() : RecyclerView.Adapter<ResultViewHolder>() {
             }
             notifyDataSetChanged()
         }
+    }
+
+    fun setInterpretation(interpretations: List<PointsInterpretation>) {
+        with(this.pointsInterpretation) {
+            clear()
+            addAll(interpretations)
+        }
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultViewHolder {
@@ -30,9 +40,11 @@ class ResultAdapter() : RecyclerView.Adapter<ResultViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ResultViewHolder, position: Int) {
-        holder.setItemContent(results[position])
+        holder.setItemContent(results[position], pointsInterpretation)
 
     }
 
-    override fun getItemCount() = results.size
+    override fun getItemCount(): Int {
+       return results.size and pointsInterpretation.size
+    }
 }

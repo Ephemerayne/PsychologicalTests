@@ -41,7 +41,8 @@ class ResultFragment : BaseFragment(R.layout.fragment_result) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val testId = arguments?.getInt(TestFragment.TEST_KEY)
         val sumPoints = arguments?.getInt(RESULT_KEY)
-        val resPlural: String? = sumPoints?.let { resources.getQuantityString(R.plurals.points, it) }
+        val resPlural: String? =
+            sumPoints?.let { resources.getQuantityString(R.plurals.points, it) }
         binding.resultPoints.text = getString(R.string.result_points, sumPoints, resPlural)
 
         with(binding.recyclerViewResults) {
@@ -51,6 +52,9 @@ class ResultFragment : BaseFragment(R.layout.fragment_result) {
         if (testId != null) {
             viewModel.getResult(testId).observe(viewLifecycleOwner, {
                 adapter.setResults(it)
+            })
+            viewModel.getInterpretation(testId).observe(viewLifecycleOwner, {
+                adapter.setInterpretation(it)
             })
         }
     }

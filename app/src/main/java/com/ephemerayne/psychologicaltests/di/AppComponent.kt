@@ -15,7 +15,8 @@ import dagger.Component
         FakeTestsRepositoryModule::class,
         FakeQuestionsRepositoryModule::class,
         FakeOptionsRepositoryModule::class,
-        FakeResultRepositoryModule::class
+        FakeResultRepositoryModule::class,
+        FakeInterpretationRepositoryModule::class
     ]
 )
 interface AppComponent : PresentationComponentDependencies {
