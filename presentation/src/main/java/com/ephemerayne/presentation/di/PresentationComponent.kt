@@ -1,9 +1,6 @@
 package com.ephemerayne.presentation.di
 
-import com.ephemerayne.domain.repository.CategoriesRepository
-import com.ephemerayne.domain.repository.OptionsRepository
-import com.ephemerayne.domain.repository.QuestionsRepository
-import com.ephemerayne.domain.repository.TestsRepository
+import com.ephemerayne.domain.repository.*
 import com.ephemerayne.presentation.api.OpenCategory
 import com.ephemerayne.presentation.api.OpenResult
 import com.ephemerayne.presentation.api.OpenTest
@@ -21,6 +18,7 @@ interface PresentationComponentDependencies : ComponentDependencies {
     fun getQuestionsRepository(): QuestionsRepository
     fun getOptionsRepository(): OptionsRepository
     fun getTestsRepository(): TestsRepository
+    fun getResultRepository(): ResultRepository
     fun openCategory(): OpenCategory
     fun openTestDescription(): OpenTestDescription
     fun openTest(): OpenTest

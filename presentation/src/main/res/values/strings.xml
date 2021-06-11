@@ -1,14 +1,18 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
+    //Test Screen
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="begin_test">Начать тест</string>
     <string name="back">Назад</string>
     <string name="next">Дальше</string>
     <string name="end_test">Закончить</string>
+
+
+    //Result Screen
     <string name="result_points">Ваш результат: %d %s</string>
     <string name="text_statistics">Статистика</string>
     <string name="delete_statistics">Удалить статистику</string>
     <string name="result_date">Дата прохождения</string>
     <string name="result_points_statistics">Количество баллов</string>
     <string name="result_statistics">Результат</string>
+    <string name="date_time_formatter">%1$s\n%2$s</string>
 </resources>

@@ -12,6 +12,7 @@ import com.ephemerayne.presentation.di.PresentationComponent
 import com.ephemerayne.presentation.di.PresentationComponentDependencies
 import com.ephemerayne.presentation.di.findComponentDependencies
 import com.ephemerayne.presentation.ui.BaseFragment
+import com.ephemerayne.presentation.ui.testlist.adapter.TestListAdapter
 import javax.inject.Inject
 
 class TestListFragment : BaseFragment(R.layout.fragment_test_list), OnTestListener {
