@@ -5,6 +5,7 @@ import com.ephemerayne.domain.entity.PointsInterpretation
 import com.ephemerayne.domain.entity.ResultEntity
 import com.ephemerayne.presentation.R
 import com.ephemerayne.presentation.databinding.ResultItemRecyclerViewBinding
+import com.ephemerayne.presentation.ui.resultscreen.getResultDescription
 import com.ephemerayne.presentation.utils.dateFormatter
 import com.ephemerayne.presentation.utils.timeFormatter
 
@@ -23,12 +24,12 @@ class ResultViewHolder(
                 timeFormatter.format(resultEntity.dateTime.toLocalTime())
             )
             pointsResultColumn.text = resultEntity.points.toString()
+
             for (interpretation in pointsInterpretation) {
-                if (resultEntity.points >= interpretation.lowerLimitPoints && resultEntity.points < interpretation.upperLimitPoints) {
-                    resultColumn.text = interpretation.result
-                }
+                val testResultInterpretation =
+                    getResultDescription(resultEntity.points, pointsInterpretation)
+                binding.resultColumn.text = testResultInterpretation.result
             }
         }
-
     }
 }
