@@ -1,6 +1,6 @@
 package com.ephemerayne.psychologicaltests.di.modules
 
-import com.ephemerayne.data.repository.FakeResultRepository
+import com.ephemerayne.data.fakerepository.FakeResultRepository
 import com.ephemerayne.domain.repository.ResultRepository
 import dagger.Module
 import dagger.Provides

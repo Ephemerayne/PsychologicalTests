@@ -45,4 +45,6 @@ dependencies {
 
     //ThreeTen DateTime
     implementation 'com.jakewharton.threetenabp:threetenabp:1.3.0'
+
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
 }

@@ -1,4 +1,4 @@
-package com.ephemerayne.data.repository
+package com.ephemerayne.data.fakerepository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
