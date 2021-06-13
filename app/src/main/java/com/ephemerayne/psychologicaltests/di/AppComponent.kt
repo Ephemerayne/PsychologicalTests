@@ -10,7 +10,7 @@ import dagger.Component
 @Component(
     modules = [
         AppComponentDependenciesModule::class,
-        FakeCategoriesRepositoryModule::class,
+        CategoriesRepositoryModule::class,
         NavigationActionModule::class,
         FakeTestsRepositoryModule::class,
         FakeQuestionsRepositoryModule::class,
