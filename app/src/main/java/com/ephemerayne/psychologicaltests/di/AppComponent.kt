@@ -12,7 +12,7 @@ import dagger.Component
         AppComponentDependenciesModule::class,
         CategoriesRepositoryModule::class,
         NavigationActionModule::class,
-        FakeTestsRepositoryModule::class,
+        TestsRepositoryModule::class,
         FakeQuestionsRepositoryModule::class,
         FakeOptionsRepositoryModule::class,
         FakeResultRepositoryModule::class,

@@ -1,11 +1,11 @@
-package com.ephemerayne.data.local
+package com.ephemerayne.data.local.category.dao
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.ephemerayne.data.model.CategoryModel
+import com.ephemerayne.data.local.category.model.CategoryModel
 
 class FakeCategoriesDao : CategoriesDao {
-    private val fakeLiveData = MutableLiveData<List<CategoryModel>>().apply {
+    private val fakeCategoriesLiveData = MutableLiveData<List<CategoryModel>>().apply {
         value = mutableListOf(
             CategoryModel(1, "Fake Category DAO 1"),
             CategoryModel(2, "Fake Category DAO 2"),
@@ -15,13 +15,13 @@ class FakeCategoriesDao : CategoriesDao {
     }
 
     override fun insertCategory(categoryModel: CategoryModel) {
-        fakeLiveData.value = mutableListOf<CategoryModel>().apply {
-            fakeLiveData.value?.let { addAll(it) }
+        fakeCategoriesLiveData.value = mutableListOf<CategoryModel>().apply {
+            fakeCategoriesLiveData.value?.let { addAll(it) }
             add(categoryModel)
         }
     }
 
     override fun getCategories(): LiveData<List<CategoryModel>> {
-        return fakeLiveData
+        return fakeCategoriesLiveData
     }
 }

@@ -1,4 +1,4 @@
-package com.ephemerayne.data.model
+package com.ephemerayne.data.local.category.model
 
 data class CategoryModel (
     val id: Int,
