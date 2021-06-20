@@ -1,7 +1,7 @@
 package com.ephemerayne.presentation.ui.resultscreen.adapter
 
 import androidx.recyclerview.widget.RecyclerView
-import com.ephemerayne.domain.entity.PointsInterpretation
+import com.ephemerayne.domain.entity.PointsInterpretationEntity
 import com.ephemerayne.domain.entity.ResultEntity
 import com.ephemerayne.presentation.R
 import com.ephemerayne.presentation.databinding.ResultItemRecyclerViewBinding
@@ -15,7 +15,7 @@ class ResultViewHolder(
 
     fun setItemContent(
         resultEntity: ResultEntity,
-        pointsInterpretation: List<PointsInterpretation>
+        pointsInterpretationEntity: List<PointsInterpretationEntity>
     ) {
         with(binding) {
             dateResultColumn.text = binding.root.context.getString(
@@ -25,9 +25,9 @@ class ResultViewHolder(
             )
             pointsResultColumn.text = resultEntity.points.toString()
 
-            for (interpretation in pointsInterpretation) {
+            for (interpretation in pointsInterpretationEntity) {
                 val testResultInterpretation =
-                    getResultDescription(resultEntity.points, pointsInterpretation)
+                    getResultDescription(resultEntity.points, pointsInterpretationEntity)
                 binding.resultColumn.text = testResultInterpretation.result
             }
         }

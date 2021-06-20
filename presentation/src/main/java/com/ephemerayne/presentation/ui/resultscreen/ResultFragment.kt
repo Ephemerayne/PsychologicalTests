@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ephemerayne.domain.entity.PointsInterpretation
+import com.ephemerayne.domain.entity.PointsInterpretationEntity
 import com.ephemerayne.presentation.R
 import com.ephemerayne.presentation.databinding.FragmentResultBinding
 import com.ephemerayne.presentation.di.PresentationComponent
@@ -62,8 +62,8 @@ class ResultFragment : BaseFragment(R.layout.fragment_result) {
             })
         }
     }
-    private fun setResult(sumPoints: Int, pointsInterpretation: List<PointsInterpretation>) {
-        val testResultInterpretation = getResultDescription(sumPoints, pointsInterpretation)
+    private fun setResult(sumPoints: Int, pointsInterpretationEntity: List<PointsInterpretationEntity>) {
+        val testResultInterpretation = getResultDescription(sumPoints, pointsInterpretationEntity)
         binding.resultType.text = testResultInterpretation.result
         binding.resultDescription.text = testResultInterpretation.description
     }

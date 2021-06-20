@@ -1,13 +1,13 @@
 package com.ephemerayne.presentation.ui.resultscreen
 
-import com.ephemerayne.domain.entity.PointsInterpretation
+import com.ephemerayne.domain.entity.PointsInterpretationEntity
 
 
 fun getResultDescription(
     points: Int,
-    pointsInterpretations: List<PointsInterpretation>
+    pointsInterpretationEntities: List<PointsInterpretationEntity>
 ): TestResultInterpretation {
-    pointsInterpretations.forEach {
+    pointsInterpretationEntities.forEach {
         if (points in it.lowerLimitPoints..it.upperLimitPoints) {
             return TestResultInterpretation(it.result, it.description)
         }

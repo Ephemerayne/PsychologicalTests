@@ -2,7 +2,7 @@ package com.ephemerayne.presentation.ui.resultscreen
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.ephemerayne.domain.entity.PointsInterpretation
+import com.ephemerayne.domain.entity.PointsInterpretationEntity
 import com.ephemerayne.domain.entity.ResultEntity
 import com.ephemerayne.domain.repository.InterpretationRepository
 import com.ephemerayne.domain.repository.ResultRepository
@@ -15,6 +15,6 @@ class ResultViewModel @Inject constructor(
 
     fun getResult(testId: Int): LiveData<List<ResultEntity>> = repository.getResult(testId)
 
-    fun getInterpretation(testId: Int): LiveData<List<PointsInterpretation>> =
+    fun getInterpretation(testId: Int): LiveData<List<PointsInterpretationEntity>> =
         repositoryInterpretation.getInterpretation(testId)
 }

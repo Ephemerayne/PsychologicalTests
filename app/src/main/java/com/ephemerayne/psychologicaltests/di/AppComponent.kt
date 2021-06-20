@@ -13,8 +13,8 @@ import dagger.Component
         CategoriesRepositoryModule::class,
         NavigationActionModule::class,
         TestsRepositoryModule::class,
-        FakeQuestionsRepositoryModule::class,
-        FakeOptionsRepositoryModule::class,
+        QuestionsRepositoryModule::class,
+        OptionsRepositoryModule::class,
         FakeResultRepositoryModule::class,
         FakeInterpretationRepositoryModule::class
     ]

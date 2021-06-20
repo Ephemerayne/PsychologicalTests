@@ -1,6 +1,6 @@
 package com.ephemerayne.domain.entity
 
-data class PointsInterpretation(
+data class PointsInterpretationEntity(
     val testId: Int,
     val lowerLimitPoints: Int,
     val upperLimitPoints: Int,

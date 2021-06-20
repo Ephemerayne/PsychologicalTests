@@ -49,7 +49,7 @@ class TestDescriptionFragment : BaseFragment(R.layout.fragment_test_description)
 
         binding.beginTestButton.setOnClickListener {
             if (testId != null) {
-                openTest(testId)
+               openTest(testId)
             }
         }
     }
